@@ -3,7 +3,7 @@
   "name": "netflix-frontend",
   "builds": [
     {
-      "src": "Netflix/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/Netflix/$1"
+      "dest": "/index.html"
     }
   ]
 }
