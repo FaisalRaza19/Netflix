@@ -13,7 +13,7 @@ dotenv.config({
 connectToDb();
 
 const corsOptions = {
-  origin: 'http://localhost:5174',
+  origin: [process.env.FRONTEND_URL,'http://localhost:5173'],
   methods: "GET, POST, DELETE, PUT, PATCH, HEAD",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
