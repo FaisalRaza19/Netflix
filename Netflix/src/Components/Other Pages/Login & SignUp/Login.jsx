@@ -16,6 +16,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
         setCredentials(prev => ({ ...prev, [name]: value }));
     };
 
+    const backend_url = import.meta.env.VITE_BACKEND_URL
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -27,7 +28,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:3000/user/login", {
+            const response = await fetch(`${backend_url}/user/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(credentials),

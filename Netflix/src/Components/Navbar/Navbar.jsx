@@ -15,7 +15,7 @@ const Navbar = ({ setIsLoggedIn }) => {
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3000/user/logOut", {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/logOut`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`,

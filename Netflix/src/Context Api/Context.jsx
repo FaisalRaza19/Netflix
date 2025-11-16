@@ -41,7 +41,7 @@ export const ContextProvider = ({ children }) => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:3000/user/userVerifyJWT", {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/userVerifyJWT`, {
                     method: "POST",
                     headers: {
                         "Authorization": `Bearer ${token}`
@@ -68,11 +68,12 @@ export const ContextProvider = ({ children }) => {
 
 
     const fetchData = async (currentPage) => {
+        const TMDB_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
         const options = {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMDY1OWU0ZmFjNTY5ZjE4NGY4ZGRkMzA0ZTVjYTAxMiIsIm5iZiI6MTcyNDIzMDkyOS43MzQwMDAyLCJzdWIiOiI2NmM1YWQxMWY3Zjk4NzI5YzJkMWIzMTUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.wOAs91y9h-nrJHMHF2wD1Gu7ksJYGtyxewyE-AOzHTY'
+                Authorization: `Bearer ${TMDB_TOKEN}`
             }
         };
 
